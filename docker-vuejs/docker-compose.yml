@@ -1,0 +1,23 @@
+networks:
+  vue:
+
+services:
+  vue-ui:
+    build:
+      context: ./vue-app
+    ports:
+      - "8085:8080"
+    stdin_open: true
+    volumes:
+      - './vue-app:/app'
+    networks:
+      - vue
+    entrypoint: [ "sh", "-c" ]
+    command: [ "npm install && npm run serve" ]
+  
+  npm:
+    image: node:current-alpine 
+    volumes:
+      - ./vue-app:/app
+    working_dir: /app
+    entrypoint: [ 'npm' ]

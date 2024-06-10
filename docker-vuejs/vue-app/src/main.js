@@ -4,5 +4,12 @@ import router from "./router";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import App from './App.vue'
 
-createApp(App).use(store).use(router).mount("#app");
+createApp(App)
+.use(store)
+.use(router)
+.use(VueAxios, axios)
+.mount("#app");

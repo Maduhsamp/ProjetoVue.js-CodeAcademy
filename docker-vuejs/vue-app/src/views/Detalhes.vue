@@ -1,6 +1,7 @@
 <template>
     <div class="card">
-        <h1>{{nome}}</h1>
+        <h1>{{title}}</h1>
+        <img>
     </div>
 </template>
 
@@ -10,18 +11,25 @@ export default {
 
     data(){
         return{
-            nome: '',
+            title: '',
+            image: '',
         }
     },
 
-created(){
-    this.axios.get('https://api.jikan.moe/v4/anime/01/full')
-    .then((response)=>{
-        this.nome =response.data.results[0].title;
-        console.log(response.data.results);
-    })
-}
-}
+    created(){
+        this.fetchTitle();
+    },
+    methods: {
+        async fetchTitle() {
+            const response = await axios.get('https://api.jikan.moe/v4/anime/1/full'); // URL da API fornecida
+            const data = response.data;
+            
+            // Acessar o título do anime
+            this.title = data.data.title;
+            this.image=data.data.large_image_url
+        }
+    }
+};
 </script>
 
 <style>

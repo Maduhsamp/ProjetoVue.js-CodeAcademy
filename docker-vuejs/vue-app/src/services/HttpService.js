@@ -33,6 +33,14 @@ export const getInfoRomance= async () => {
   return await HttpService.get('genres/anime/data/22/')
 }
 //info dos animes
+export const getAnime = async () => {
+  return await HttpService.get('anime');
+}
+
+export const getAnimes = async (id) => {
+  return await HttpService.get(`anime/${id}`);
+}
+
 export const getInfoAnime = async (id) => {
   return await HttpService.get(`anime/${id}/full`)
 }

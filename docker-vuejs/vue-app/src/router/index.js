@@ -3,9 +3,9 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
-    name: "Home", //Nome da rota
-    component: () => import("@/views/HomeView.vue"),
-    meta: { title: "Home" }, // Define o título da aba para esta rota
+    name: "Inicio", //Nome da rota
+    component: () => import("@/views/InicioView.vue"),
+    meta: { title: "InicioView" }, // Define o título da aba para esta rota
   },
   {
     path: "/about",

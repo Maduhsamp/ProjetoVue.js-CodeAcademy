@@ -1,11 +1,12 @@
 <template>
+
   <div>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <nav>
     <img src="../assets/LogoAnimePlaza.png" alt="Logo">
     <div class="shadow-effect">
       <i class='bx bxs-home'></i>
-      <button><h4>Início</h4></button>
+      <router-link to="/"><button><h4>Início</h4></button></router-link>
     </div>
     <div class="shadow-effect">
       <i class='bx bxs-info-circle'></i>
@@ -26,6 +27,7 @@
       <button><h4>Favoritos</h4></button>
     </div>
     </nav>
+    <router-view />
   </div>
 </template>
 

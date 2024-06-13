@@ -11,10 +11,11 @@
                     <p>{{ sinopse }}</p>
                 </div>
                 <div class="genero">
-                    <p><strong>Gênero:</strong></p>
-                    <p v-for="genero in generos">{{ genero.name }}</p>
-                    <input v-model="inputId" @:keydown.enter="getInfo()" placeholder="id"> 
-                </div>
+                    <h5><strong>Gênero:</strong></h5>
+                    <p class="tags" v-for="genero in generos">{{ genero.name }}</p>
+                    </div>
+                    <input v-model="inputId" > 
+                    <button @click="getInfo">Enviar</button>
             </div>
         </div>
     </div> 
@@ -33,11 +34,12 @@
                 imagem: '',
                 sinopse: '',
                 generos: '',
-                inputId: '',
+                inputId: 1,
             }
         },
         methods:{
             async getInfo(){
+
                 console.log(this.inputId);
                 const response = await getInfoAnime(this.inputId)
                 this.nome =response.data.data.title;
@@ -48,6 +50,9 @@
                 this.generos =response.data.data.genres;
             }
         },
+        created(){
+            this.getInfo();
+        }
     }
     </script>
     
@@ -101,6 +106,15 @@
     .genero{
         display:flex;
         margin: 30px 0;
+        align-items: center;
+        font-size: 20px;
+
+        p{
+            background-color: #2c2c2c; 
+            padding: 4px;
+            border-radius: 16px;
+            box-shadow: 10px 10px 20px rgb(0, 0, 0);
+        }
     }
     img{
         width: 350px;

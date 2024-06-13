@@ -3,25 +3,25 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <nav>
     <img src="../assets/LogoAnimePlaza.png" alt="Logo">
-    <div>
+    <div class="shadow-effect">
       <i class='bx bxs-home'></i>
       <button><h4>Início</h4></button>
     </div>
-    <div>
+    <div class="shadow-effect">
       <i class='bx bxs-info-circle'></i>
       <button><h4>Sobre</h4></button>
     </div>
-    <div class="genres">
+    <div class="genres shadow-effect">
       <i class='bx bxs-movie-play'></i>
-    </div>
-      <select @click="toggleArrow" :class="{ 'rotated': isArrowRotated }">
+      <select>
         <option value="" disabled selected hidden>Gênero</option>
         <option value="aventura">Aventura</option>
         <option value="acao">Ação</option>
         <option value="drama">Drama</option>
         <option value="terror">Terror</option>
       </select>
-    <div>
+    </div>
+    <div class="shadow-effect">
       <i class='bx bxs-star'></i>
       <button><h4>Favoritos</h4></button>
     </div>
@@ -31,17 +31,7 @@
 
 <script>
 export default {
-    name: "Header",
-    data() {
-      return {
-        isArrowRotated: false
-      };
-    },
-    methods: {
-      toggleArrow() {
-        this.isArrowRotated = !this.isArrowRotated;
-      }
-  }
+    name: "Header"
 }
 </script>
 
@@ -60,6 +50,40 @@ export default {
     align-items: center;
   }
   
+  .shadow-effect:hover {
+    text-shadow: 1px 1px 10px #fff;
+    transition: .5s;
+    
+    button {
+      text-shadow: 1px 1px 10px #fff;
+      transition: .5s;
+    }
+  }
+
+  .genres {
+    position: relative;
+    display: inline-block;
+  }
+
+  .genres::after {
+    content: '';
+    position: absolute;
+    left: 25px;
+    bottom: 4px;
+    width: 70%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+  }
+
+.genres:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
   nav i {
     font-size: 1.3em;
   }
@@ -76,11 +100,6 @@ export default {
     background: transparent;
     border: none;
     color: #fff;
-  }
-
-  nav button:hover {
-    text-shadow: 1px 1px 10px #fff;
-    transition: .5s;
   }
 
   nav button::after {
@@ -102,6 +121,10 @@ export default {
     transform: scaleX(1);
   }
 
+  .genres i {
+    margin-right: 5px;
+  }
+
   nav select {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -110,7 +133,7 @@ export default {
     background: none;
     border: none;
     color: #fff;
-    width: 8%;
+    width: 70%;
     height: auto;
     margin-bottom: 8px;
     outline: none;

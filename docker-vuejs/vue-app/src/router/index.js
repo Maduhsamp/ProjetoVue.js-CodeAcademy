@@ -13,6 +13,11 @@ const routes = [
     component: () => import("@/views/AboutView.vue"),
     meta: { title: "About" },
   },
+  {
+    path:"/Detalhes",
+    name: "Detalhes",
+    component:() => import("@/views/Detalhes.vue"),
+  }
 ];
 
 const router = createRouter({

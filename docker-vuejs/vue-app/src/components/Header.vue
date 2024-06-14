@@ -3,28 +3,33 @@
   <div>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <nav>
-    <img src="../assets/LogoAnimePlaza.png" alt="Logo">
+    <router-link to="/" exact><img src="../assets/LogoAnimePlaza.png" alt="Logo"></router-link>
     <div class="shadow-effect">
       <i class='bx bxs-home'></i>
       <router-link to="/"><button><h4>Início</h4></button></router-link>
     </div>
     <div class="shadow-effect">
       <i class='bx bxs-info-circle'></i>
-      <button><h4>Sobre</h4></button>
+      <router-link to="/sobre"><button><h4>Sobre</h4></button></router-link>
     </div>
     <div class="genres shadow-effect">
       <i class='bx bxs-movie-play'></i>
-      <select>
-        <option value="" disabled selected hidden>Gênero</option>
-        <option value="aventura">Aventura</option>
-        <option value="acao">Ação</option>
-        <option value="drama">Drama</option>
-        <option value="terror">Terror</option>
-      </select>
+      <ul class="menu">
+  <li>
+    <a href="#">Parent Link</a>
+    
+    <ul>
+      <li><a href="#">Child Link</a></li>
+      <li><a href="#">Child Link</a></li>
+      <li><a href="#">Child Link</a></li>
+      <li><a href="#">Child Link</a></li>
+    </ul>
+  </li>
+</ul>
     </div>
     <div class="shadow-effect">
       <i class='bx bxs-star'></i>
-      <button><h4>Favoritos</h4></button>
+      <router-link to="/favoritos"><button><h4>Favoritos</h4></button></router-link>
     </div>
     </nav>
     <router-view />
@@ -37,7 +42,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   nav {
     font-family: "Poppins", sans-serif;
@@ -88,13 +93,21 @@ export default {
 
   nav i {
     font-size: 1.3em;
+    margin-right: 5px;
+  }
+
+  a {
+    margin-right: -5%;
+    width: 280px;
+    height: 100px;
+    cursor: pointer;
   }
 
   nav img {
-      margin-left: -5%;
-      width: 20%;
-      height: auto;
-      cursor: pointer;
+    margin-left: -10%;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
   }
 
   nav button {
@@ -124,31 +137,47 @@ export default {
   }
 
   .genres i {
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
-  nav select {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 1.4em;
-    background: none;
-    border: none;
+  .menu {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 200px;
+  }
+
+  .menu > li > a {
+    background: blue;
     color: #fff;
-    width: 70%;
-    height: auto;
-    margin-bottom: 8px;
-    outline: none;
-    cursor: pointer;
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
   }
 
-  nav select:hover {
-    text-shadow: 1px 1px 10px #fff;
-    transition: .5s;
+  .menu ul {
+    background: #ddd;
+    height: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transition: all .5s ease;
+    top: 35px;
+    width: 100%;
+    padding-left: 0;
   }
 
-  nav select option {
-    background: #3D0E5B;
+  .menu li:hover ul {
+    height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menu ul a {
+    color: #000;
+    display: block;
+    padding: 5px 20px;
   }
 
 </style>

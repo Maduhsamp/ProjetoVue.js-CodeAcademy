@@ -1,62 +1,42 @@
 <template>
-    <div>
-    <Header/>
-        <div class="cards" v-for="(anime, index) in animes" v-bind:key="index">
-           <CardComponent :anime="anime" />
-        </div>
-    </div>
+  <div class="cards">
+          <h1>Ação</h1>
+           <ActionCardComponent />
+          <h1>Aventura</h1>
+           <AventureCardComponent />
+          <h1>Comédia</h1>
+           <!-- <ComedyCardComponent />
+          <h1>Fantasia</h1>
+           <FantasyCardComponent />
+          <h1>Ficção</h1>
+           <FicctionCardComponent /> -->
+  </div>
 </template>
 
 <script>
-import Header from '../components/Header.vue'
-import CardComponent from '../components/CardComponent.vue';
-import { getAnimes } from '@/services/HttpService';
+import ActionCardComponent from '../components/ActionCardComponent.vue';
+import AventureCardComponent from '../components/AventureCardComponent.vue';
+import ComedyCardComponent from '../components/ComedyCardComponent.vue';
+import FantasyCardComponent from '../components/FantasyCardComponent.vue';
+import FicctionCardComponent from '../components/FicctionCardComponent.vue';
 
 export default {
    name: "InicioView",
-   data() {
-    return {
-        animes: ['Anime 1', 'Anime 2', 'Anime 3']
-    }
-   },
-
    components: {
-    Header,
-    CardComponent
-   },
-
-   methods: {
-    async getAnimes() {
-        const response = await getAnimes()
-        console.log(response);
-
-        this.animes = response.data.results;
-    },
-
-  },
-  computed: {
-    animes() {
-        return this.animes.slice(0,3);
-    }
-  },
-    created() {
-        this.getAnimes();
-    }
+    ActionCardComponent,
+    AventureCardComponent,
+    ComedyCardComponent,
+    FantasyCardComponent,
+    FicctionCardComponent
+   }
 }
 </script>
 
-<style>
-
-   * {
-      margin: 0;
-      padding: 0;  
-   }
-
-  .cards {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: 100vw;
-    height: auto;
-  }
+<style scoped>
+.cards {
+  margin: 0 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 </style>

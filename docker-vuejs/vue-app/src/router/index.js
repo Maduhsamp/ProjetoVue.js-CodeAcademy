@@ -3,15 +3,51 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
-    name: "Inicio", //Nome da rota
+    name: "Inicio",
     component: () => import("@/views/InicioView.vue"),
-    meta: { title: "InicioView" }, // Define o título da aba para esta rota
+    meta: { title: "Início" },
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import("@/views/AboutView.vue"),
-    meta: { title: "About" },
+    path: "/sobre",
+    name: "Sobre",
+    component: () => import("@/views/SobreView.vue"),
+    meta: { title: "Sobre" },
+  },
+  {
+    path: "/genero-acao",
+    name: "GeneroAcao",
+    component: () => import("@/views/AcaoView.vue"),
+    meta: { title: "Gênero Ação" },
+  },
+  {
+    path: "/genero-aventura",
+    name: "GeneroAventura",
+    component: () => import("@/views/AventuraView.vue"),
+    meta: { title: "Gênero Aventura" },
+  },
+  {
+    path: "/genero-comedia",
+    name: "GeneroComedia",
+    component: () => import("@/views/ComediaView.vue"),
+    meta: { title: "Gênero Comédia" },
+  },
+  {
+    path: "/genero-fantasia",
+    name: "GeneroFantasia",
+    component: () => import("@/views/FantasiaView.vue"),
+    meta: { title: "Gênero Fantasia" },
+  },
+  {
+    path: "/genero-ficcao",
+    name: "GeneroFiccao",
+    component: () => import("@/views/FiccaoView.vue"),
+    meta: { title: "Gênero Ficção" },
+  },
+  {
+    path: "/favoritos",
+    name: "Favoritos",
+    component: () => import("@/views/FavoritosView.vue"),
+    meta: { title: "Favoritos" },
   },
   {
     path:"/Detalhes",

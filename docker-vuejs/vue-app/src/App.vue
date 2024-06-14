@@ -1,13 +1,15 @@
 <template>
   <div class="body">
-    <InicioView />
+    <Header />
 </div>
 </template>
 <script>
 import InicioView from './views/InicioView.vue'
+import Header from './components/Header.vue'
 
 export default {
   components: {
+    Header,
     InicioView,
   }
 }

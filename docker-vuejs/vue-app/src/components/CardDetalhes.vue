@@ -65,12 +65,13 @@
     
     .card{
         margin: 50px;
-        background-color: #3D0E5B;
+        background-color: rgb(61, 14, 91);
         border-radius: 24px;
         width: 100%;
         color: white;
         display: flex;
         flex-direction: row;
+        box-shadow: rgba(61, 14, 91, 0.7) 5px 5px;
     } 
     .info{
         display: flex;
@@ -93,7 +94,7 @@
         border-radius: 16px;
         padding: 30px;  
         margin-right: 40px;
-        box-shadow: 10px 10px 20px rgb(0, 0, 0);
+        box-shadow: rgb(39, 40, 40) 15px 15px 20px -10px;
         
         h3{
             margin: 0 0 10px;

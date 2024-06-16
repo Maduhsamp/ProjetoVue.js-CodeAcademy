@@ -16,6 +16,12 @@ export const getGenres = async () => {
 export const getInfoAction = async () => {
   return await HttpService.get('genres/anime/data/1/')
 }
+
+export const getTopFiveGenre = async (idGenre,limite) => {
+  return await HttpService.get(`anime?page=1&limit=${limite}&genres=${idGenre}&order_by=popularity`)
+  //https://api.jikan.moe/v4/anime?page=1&limit=5&genres=1&order_by=members
+  //https://api.jikan.moe/v4/anime?page=1&limit=5&order_by=popularity&genres=1
+}
 //genero Adventure
 export const getInfoAdventure= async () => {
   return await HttpService.get('genres/anime/data/2/')

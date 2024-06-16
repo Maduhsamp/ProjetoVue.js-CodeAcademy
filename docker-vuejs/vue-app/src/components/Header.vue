@@ -48,7 +48,7 @@ export default {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
-    background: #3D0E5B;
+    background-color: #3D0E5B;;
     color: #fff;
     width: 100%;
     height: 20%;
@@ -56,20 +56,28 @@ export default {
     justify-content: space-evenly;
     align-items: center;
   }
-  
+  h4{
+    background-color: #3D0E5B;
+  }
+  .shadow-effect{
+    background-color: #3D0E5B;
+  }
   .shadow-effect:hover {
     text-shadow: 1px 1px 10px #fff;
     transition: .5s;
+    background-color: #3D0E5B;;
     
     button {
       text-shadow: 1px 1px 10px #fff;
       transition: .5s;
+      
     }
   }
 
   .genres {
     position: relative;
     display: inline-block;
+    background-color: #3D0E5B;;
   }
 
   .genres::after {
@@ -84,16 +92,19 @@ export default {
     transform-origin: right;
     transform: scaleX(0);
     transition: transform .5s;
+    
   }
 
 .genres:hover::after {
     transform-origin: left;
     transform: scaleX(1);
+    
   }
 
   nav i {
     font-size: 1.3em;
     margin-right: 5px;
+    background-color: #3D0E5B;;
   }
 
   a {
@@ -101,6 +112,7 @@ export default {
     width: 280px;
     height: 100px;
     cursor: pointer;
+    background-color: #3D0E5B;;
   }
 
   nav img {
@@ -108,6 +120,7 @@ export default {
     width: 100%;
     height: auto;
     cursor: pointer;
+    background-color: #3D0E5B;
   }
 
   nav button {
@@ -115,6 +128,8 @@ export default {
     background: transparent;
     border: none;
     color: #fff;
+    background-color: #3D0E5B;
+    
   }
 
   nav button::after {
@@ -129,15 +144,19 @@ export default {
     transform-origin: right;
     transform: scaleX(0);
     transition: transform .5s;
+    
+    
   }
 
   nav button:hover::after {
     transform-origin: left;
     transform: scaleX(1);
+    
   }
 
   .genres i {
     margin-right: 10px;
+    background-color: #3D0E5B;
   }
 
   .menu {
@@ -145,6 +164,7 @@ export default {
     margin: 0 auto;
     position: relative;
     width: 200px;
+    
   }
 
   .menu > li > a {
@@ -154,6 +174,7 @@ export default {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
+    
   }
 
   .menu ul {
@@ -178,6 +199,7 @@ export default {
     color: #000;
     display: block;
     padding: 5px 20px;
+    
   }
 
 </style>

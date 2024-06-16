@@ -1,8 +1,11 @@
 <template>
-    <div class="card" v-for="anime in animes" :key="anime.id">
+  <div class="card" v-for="anime in animes" :key="anime.id">
+    <img v-if="anime.imagem" :src="anime.imagem">
+    <div class="titulo">
       <h5>{{ anime.nome }}</h5>
-      <img v-if="anime.imagem" :src="anime.imagem">
+      <p>{{ anime.nomejapones }}</p>
     </div>
+  </div>
 </template>
 <script>
 import { getAnimes } from "@/services/HttpService";
@@ -17,8 +20,7 @@ export default {
   
   methods: {
     async getInfo() {
-      const ids = ['16498', '5114', '11757', '32281', '4181', '35247', '9253', '28977', '33486', '30831', 
-      '32071', '31043', '15335', '22135', '37510', '31478', '11579', '36901', '20589', '32491'];
+      const ids = ['19815', '32182', '24833','38691'];
       const animePromises = ids.map(id => getAnimes(id));
       const responses = await Promise.all(animePromises);
       this.animes = responses.map(response => ({
@@ -40,27 +42,39 @@ export default {
   margin: 0;
   padding: 0;
 }
+.titulo {
+  margin: 10px;
+  width: 200px;
+  height: auto;
+  background-color: #2c2c2c;
+  display: grid;
+  text-align: start;
 
+  h5{
+    background-color: #2c2c2c;
+  }
+  p{
+    background-color: #2c2c2c;
+    color: white;
+    font-size: 15px;
+  }
+}
 .card {
-  flex-basis: calc(20% - 20px);
-  margin: 10px; 
-  width: 70px;
-  padding: 10px;
+  margin: 5px;
+  width: auto;
   background-color: #2c2c2c;
   color: white;
   text-align: center;
   border-radius: 16px;
   align-items: center;
-  h5{
-    margin-bottom: 10px;
-  }
-  img{
-    align-items: end;
-  }
-}
+  box-shadow: rgb(39, 40, 40) 15px 15px 20px -10px;
 
-.card img {
-  max-width: 70%;
-  border-radius: 5px;
+  img{
+    margin: 5px 5px;
+    width: 210px;
+    height: 300px;
+    justify-self: end;
+    border-radius: 14px;
+  }
 }
 </style>

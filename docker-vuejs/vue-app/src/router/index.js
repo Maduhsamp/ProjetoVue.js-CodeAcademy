@@ -3,15 +3,51 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
-    name: "Home", //Nome da rota
-    component: () => import("@/views/HomeView.vue"),
-    meta: { title: "Home" }, // Define o título da aba para esta rota
+    name: "Inicio",
+    component: () => import("@/views/InicioView.vue"),
+    meta: { title: "Início" },
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import("@/views/AboutView.vue"),
-    meta: { title: "About" },
+    path: "/sobre",
+    name: "Sobre",
+    component: () => import("@/views/SobreView.vue"),
+    meta: { title: "Sobre" },
+  },
+  {
+    path: "/acao",
+    name: "Acao",
+    component: () => import("@/views/AcaoView.vue"),
+    meta: { title: "Gênero Ação" },
+  },
+  {
+    path: "/aventura",
+    name: "Aventura",
+    component: () => import("@/views/AventuraView.vue"),
+    meta: { title: "Gênero Aventura" },
+  },
+  {
+    path: "/comedia",
+    name: "Comedia",
+    component: () => import("@/views/ComediaView.vue"),
+    meta: { title: "Gênero Comédia" },
+  },
+  {
+    path: "/fantasia",
+    name: "Fantasia",
+    component: () => import("@/views/FantasiaView.vue"),
+    meta: { title: "Gênero Fantasia" },
+  },
+  {
+    path: "/romance",
+    name: "Romance",
+    component: () => import("@/views/RomanceView.vue"),
+    meta: { title: "Gênero Romance" },
+  },
+  {
+    path: "/favoritos",
+    name: "Favoritos",
+    component: () => import("@/views/FavoritosView.vue"),
+    meta: { title: "Favoritos" },
   },
   {
     path:"/Detalhes",

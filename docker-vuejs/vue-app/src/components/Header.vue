@@ -2,46 +2,74 @@
   <div>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <nav>
-    <img src="../assets/LogoAnimePlaza.png" alt="Logo">
-    <div class="shadow-effect">
-      <i class='bx bxs-home'></i>
-      <button><h4>Início</h4></button>
-    </div>
-    <div class="shadow-effect">
-      <i class='bx bxs-info-circle'></i>
-      <button><h4>Sobre</h4></button>
-    </div>
-    <div class="genres shadow-effect">
-      <i class='bx bxs-movie-play'></i>
-      <select>
-        <option value="" disabled selected hidden>Gênero</option>
-        <option value="aventura">Aventura</option>
-        <option value="acao">Ação</option>
-        <option value="drama">Drama</option>
-        <option value="terror">Terror</option>
-      </select>
-    </div>
-    <div class="shadow-effect">
-      <i class='bx bxs-star'></i>
-      <button><h4>Favoritos</h4></button>
-    </div>
+      <router-link to="/" exact><img src="../assets/LogoAnimePlaza.png" alt="Logo"></router-link>
+      <div class="shadow-effect">
+        <i class='bx bxs-home'></i>
+        <router-link to="/"><button><h4>Início</h4></button></router-link>
+      </div>
+      <div class="shadow-effect">
+        <i class='bx bxs-info-circle'></i>
+        <router-link to="/sobre"><button><h4>Sobre</h4></button></router-link>
+      </div>
+      <div class="genres shadow-effect">
+        <i class='bx bxs-movie-play'></i>
+        <div class="dropdown">
+          <div class="select" @click="toggleDropdown">
+            <span class="selected">{{ selectedGenre }}</span>
+            <div class="caret" :class="{ 'caret-rotate': isDropdownOpen }"></div>
+          </div>
+          <ul class="menu" :class="{ 'menu-open': isDropdownOpen }">
+            <li v-for="genre in genres" :key="genre" @click="selectGenre(genre)" :class="{ 'active': genre === selectedGenre }">{{ genre }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="shadow-effect">
+        <i class='bx bxs-star'></i>
+        <router-link to="/favoritos"><button><h4>Favoritos</h4></button></router-link>
+      </div>
     </nav>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-    name: "Header"
-}
+  name: "Header",
+  data() {
+    return {
+      isDropdownOpen: false,
+      selectedGenre: 'Gênero',
+      genres: ['Ação', 'Aventura', 'Comédia', 'Fantasia', 'Romance'],
+      genreRoutes: {
+        'Ação': '/acao',
+        'Aventura': '/aventura',
+        'Comédia': '/comedia',
+        'Fantasia': '/fantasia',
+        'Romance': '/romance'
+      }
+    };
+  },
+  methods: {
+    toggleDropdown() {
+      this.isDropdownOpen = !this.isDropdownOpen;
+    },
+    selectGenre(genre) {
+      this.selectedGenre = genre;
+      this.isDropdownOpen = false; // Fecha o dropdown após selecionar um gênero
+      // Redireciona para a rota correspondente ao gênero selecionado
+      this.$router.push(this.genreRoutes[genre]);
+    }
+  }
+};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   nav {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
-    background: #3D0E5B;
+    background-color: #3D0E5B;;
     color: #fff;
     width: 100%;
     height: 20%;
@@ -49,28 +77,38 @@ export default {
     justify-content: space-evenly;
     align-items: center;
   }
-  
+  h4{
+    background-color: #3D0E5B;
+  }
+  .shadow-effect{
+    background-color: #3D0E5B;
+  }
   .shadow-effect:hover {
     text-shadow: 1px 1px 10px #fff;
     transition: .5s;
+    background-color: #3D0E5B;;
     
     button {
       text-shadow: 1px 1px 10px #fff;
       transition: .5s;
+      
     }
   }
 
   .genres {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #3D0E5B;;
   }
 
   .genres::after {
     content: '';
     position: absolute;
-    left: 25px;
-    bottom: 4px;
-    width: 70%;
+    left: 14%;
+    bottom: 3%;
+    width: 60%;
     height: 3px;
     background: #fff;
     border-radius: 5px;
@@ -79,20 +117,32 @@ export default {
     transition: transform .5s;
   }
 
-.genres:hover::after {
+  .genres:hover::after {
     transform-origin: left;
     transform: scaleX(1);
+    
   }
 
   nav i {
     font-size: 1.3em;
+    margin-right: 5px;
+    background-color: #3D0E5B;;
+  }
+
+  a {
+    margin-right: -5%;
+    width: 280px;
+    height: 100px;
+    cursor: pointer;
+    background-color: #3D0E5B;;
   }
 
   nav img {
-      margin-left: -5%;
-      width: 20%;
-      height: auto;
-      cursor: pointer;
+    margin-left: -10%;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    background-color: #3D0E5B;
   }
 
   nav button {
@@ -100,6 +150,8 @@ export default {
     background: transparent;
     border: none;
     color: #fff;
+    background-color: #3D0E5B;
+    
   }
 
   nav button::after {
@@ -119,34 +171,98 @@ export default {
   nav button:hover::after {
     transform-origin: left;
     transform: scaleX(1);
+    
   }
 
   .genres i {
-    margin-right: 5px;
+    margin-right: 7px;
+    margin-bottom: 3%;
+    background-color: #3D0E5B;
   }
 
-  nav select {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 1.4em;
-    background: none;
-    border: none;
-    color: #fff;
+  .dropdown {
+    background: #3D0E5B;
+    min-width: 10em;
+  }
+
+  .dropdown * {
+    box-sizing: border-box;
+  }
+
+  .select {
+    background: #3D0E5B;
+    margin-top: -5%;
     width: 70%;
-    height: auto;
-    margin-bottom: 8px;
-    outline: none;
+    color: #fff;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px #3D0E5B solid;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .selected {
+    background: transparent;
+  }
+
+  .select-clicked {
+    border: 2px #48255e solid;
+    box-shadow: 0 0 0.8em #48255e;
+  }
+
+  .caret {
+    background: transparent;
+    width: 0;
+    height: 0;
+    margin-left: 5%;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+  }
+
+  .caret-rotate {
+    transform: rotate(180deg);
+  }
+
+  .menu {
+    list-style: none;
+    text-align: center;
+    padding: 0.2em 0.5em;
+    background: none;
+    border-radius: 16px;
+    color: #fff;
+    position: absolute;
+    top: 3em;
+    left: 33%;
+    width: 90%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    z-index: 1;
+  }
+
+  .menu li {
+    background: #3D0E5B;
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
     cursor: pointer;
   }
 
-  nav select:hover {
-    text-shadow: 1px 1px 10px #fff;
+  .menu li:hover {
+    background: #fff;
+    color: #3D0E5B;
+    text-shadow: 1px 1px 10px #3D0E5B;
     transition: .5s;
   }
 
-  nav select option {
-    background: #3D0E5B;
+  .menu-open {
+    display: block;
+    opacity: 1;
   }
 
 </style>

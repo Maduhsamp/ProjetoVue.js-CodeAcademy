@@ -12,27 +12,23 @@ const HttpService = axios.create({
 export const getGenres = async () => {
   return await HttpService.get('genres/anime')
 }
-//genero Action
-export const getInfoAction = async () => {
-  return await HttpService.get('genres/anime/data/1/')
+//Card Component Filtrado por Genero e limite de 
+export const getTopFiveGenre = async (idGenre,limite) => {
+  return await HttpService.get(`anime?page=1&limit=${limite}&genres=${idGenre}&order_by=popularity`)
 }
-//genero Adventure
-export const getInfoAdventure= async () => {
-  return await HttpService.get('genres/anime/data/2/')
-}
-//genero Comedy
-export const getInfoComedy= async () => {
-  return await HttpService.get('genres/anime/data/4/')
-}
-//genero Fantasy
-export const getInfoFantasy= async () => {
-  return await HttpService.get('genres/anime/data/10/')
-}
-//genero Romance
-export const getInfoRomance= async () => {
-  return await HttpService.get('genres/anime/data/22/')
+//Cards Mais populares
+export const getMostPopular = async () => {
+  return await HttpService.get('top/anime?limit=10&filter=bypopularity')
 }
 //info dos animes
+export const getAnime = async () => {
+  return await HttpService.get('anime');
+}
+
+export const getAnimes = async (id) => {
+  return await HttpService.get(`anime/${id}`);
+}
+
 export const getInfoAnime = async (id) => {
   return await HttpService.get(`anime/${id}/full`)
 }

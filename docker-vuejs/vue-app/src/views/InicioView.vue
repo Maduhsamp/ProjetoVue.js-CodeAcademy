@@ -1,0 +1,26 @@
+<template>
+  <div class="container">
+      <!-- <CardComponent :idGenero="1" nomeGenero="AÇÃO" limite="5"/>
+      <CardComponent :idGenero="2" nomeGenero="AVENTURA" limite="5"/>
+      <CardComponent :idGenero="4" nomeGenero="COMEDIA" limite="5"/>
+      <CardComponent :idGenero="10" nomeGenero="FANTASIA" limite="5" delay="2000"/>
+      <CardComponent :idGenero="22" nomeGenero="ROMANCE" limite="5" delay="3000"/> -->
+      <CardMostPopular/>
+  </div>
+</template>
+
+<script>
+import CardComponent from '../components/CardComponent.vue';
+import CardMostPopular from "../components/CardMostPopular.vue";
+export default {
+   name: "InicioView",
+   components: {
+    CardComponent,
+    CardMostPopular
+   }
+}
+</script>
+
+<style scoped>
+
+</style>

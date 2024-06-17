@@ -1,13 +1,9 @@
 <template>
-    
+    <h1>Favoritos</h1>
 </template>
 
 <script>
-export default {
-    name:"Footer",
-}
 </script>
 
-<style>
-
+<style scoped>
 </style>

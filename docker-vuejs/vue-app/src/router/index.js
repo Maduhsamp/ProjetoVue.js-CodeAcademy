@@ -40,9 +40,10 @@ const routes = [
   {
     path: "/genero-ficcao",
     name: "GeneroFiccao",
-    component: () => import("@/views/FiccaoView.vue"),
+    component: () => import("@/views/RomanceView.vue"),
     meta: { title: "Gênero Ficção" },
   },
+
   {
     path: "/favoritos",
     name: "Favoritos",
@@ -50,7 +51,7 @@ const routes = [
     meta: { title: "Favoritos" },
   },
   {
-    path:"/Detalhes",
+    path:"/Detalhes/:inputId",
     name: "Detalhes",
     component:() => import("@/views/Detalhes.vue"),
   }

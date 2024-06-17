@@ -11,11 +11,9 @@
                     <p>{{ sinopse }}</p>
                 </div>
                 <div class="genero">
-                    <h5><strong>Gênero:</strong></h5>
+                    <h5>Gênero:</h5>
                     <p class="tags" v-for="genero in generos">{{ genero.name }}</p>
                     </div>
-                    <input v-model="inputId" > 
-                    <button @click="getInfo">Enviar</button>
             </div>
         </div>
     </div> 
@@ -25,7 +23,11 @@
     import {getInfoAnime} from '@/services/HttpService';
     export default {
         name:"CardDetalhes",
+        props:{
+            id:{
 
+            }
+        },
         data(){
             return{
                 nome: '',
@@ -34,12 +36,11 @@
                 imagem: '',
                 sinopse: '',
                 generos: '',
-                inputId: 1,
+                inputId: this.id,
             }
         },
         methods:{
             async getInfo(){
-
                 console.log(this.inputId);
                 const response = await getInfoAnime(this.inputId)
                 this.nome =response.data.data.title;
@@ -56,7 +57,7 @@
     }
     </script>
     
-    <style lang="scss">
+    <style lang="scss" scoped>
     
     .container{
         display: flex;
@@ -71,26 +72,30 @@
         color: white;
         display: flex;
         flex-direction: row;
-        box-shadow: rgba(61, 14, 91, 0.7) 5px 5px;
+        box-shadow: rgb(39, 40, 40) 15px 15px 20px -10px;
     } 
     .info{
         display: flex;
         flex-direction: column;
         align-items: start;
         text-align: left;
-
+        background-color: #3d0e5bb3;
+        border-radius: 24px;
         h1{
             margin-left: 30px;
+            background-color: #3d0e5bb3;
         }
         h3{
             margin-left:30px;
+            background-color: #3d0e5bb3;
         }
         p{
             margin-left:30px;
+            background-color: #3d0e5bb3;
         }
     }
     .sinopse{
-        background: #2c2c2c;
+        background: #0c0c0c;
         border-radius: 16px;
         padding: 30px;  
         margin-right: 40px;
@@ -98,9 +103,11 @@
         
         h3{
             margin: 0 0 10px;
+            background: #0c0c0c;
         }
         p{
-            margin:0
+            margin:0;
+            background:#0c0c0c;
         }
     }
 
@@ -109,12 +116,17 @@
         margin: 30px 0;
         align-items: center;
         font-size: 20px;
+        background-color: #3d0e5bb3;
 
         p{
             background-color: #2c2c2c; 
             padding: 4px;
             border-radius: 16px;
             box-shadow: 10px 10px 20px rgb(0, 0, 0);
+        }
+        h5{
+            background-color: #3d0e5bb3;
+            font-weight: 500;
         }
     }
     img{

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Mais Populares</h1>
+        <h1>Mais Avaliados</h1>
         <div class="cards">
             <div class="card" v-for="anime in animes" :key="anime.id" @click="goToDescripton(anime.id)">
                 <img v-if="anime.imagem" :src="anime.imagem">
@@ -14,10 +14,10 @@
     </template>
     
     <script>
-      import { getMostPopular } from "@/services/HttpService";
+      import { getMostAiring} from "@/services/HttpService";
       
       export default {
-        name: "CardMostPopular",
+        name: "CardMostAiring",
         data() {
           return {
             animes: [],
@@ -25,7 +25,7 @@
         },
         methods: {
           async getInfo() {
-            const responses = await getMostPopular();
+            const responses = await getMostAiring();
             this.animes = responses.data.data.map(response => ({
               id: response.mal_id,
               nome: response.title,
@@ -46,7 +46,7 @@
       </script>
       <style scoped lang="scss">
       * {
-        margin: 0;
+        margin-top: 10px;
         padding: 0;
       }
       .titulo {
@@ -93,8 +93,9 @@
         }
       }
       .card:hover {
-      transform: scale(1.1); /* Aumenta o tamanho do card em 10% */
+      transform: scale(1.1); 
       transition-duration: 0.5s;
+      cursor: poj;
 }
       h1{
       margin: 30px 0 10px 20px;

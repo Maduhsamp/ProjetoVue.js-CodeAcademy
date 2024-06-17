@@ -18,7 +18,14 @@ export const getTopFiveGenre = async (idGenre,limite) => {
 }
 //Cards Mais populares
 export const getMostPopular = async () => {
-  return await HttpService.get('top/anime?limit=10&filter=bypopularity')
+  return await HttpService.get('top/anime?limit=5&filter=bypopularity')
+}
+//Card Mais avaliados
+export const getMostAiring = async () => {
+  return await HttpService.get('top/anime?filter=airing&type=tv&limit=5')
+}
+export const getUpcoming = async() => {
+  return await HttpService.get('top/anime?filter=upcoming&type=tv&limit=5')
 }
 //info dos animes
 export const getAnime = async () => {

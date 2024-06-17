@@ -1,7 +1,7 @@
     <template>
         <div class="container">
-        <CardComponent :idGenero="10" nomeGenero="Fantasia" limite="25"/>
-        <CardComponent :idGenero="10" nomeGenero="" limite="25"/>
+        <CardComponent :idGenero="22" nomeGenero="Romance" limite="25"/>
+        <CardComponent :idGenero="22" nomeGenero="" limite="25"/>
         </div>
     </template>
     
@@ -9,7 +9,7 @@
     import CardComponent from '../components/CardComponent.vue';
 
     export default {
-        name: "FantasiaView",
+        name: "RomanceView",
         components: {
             CardComponent,
         }

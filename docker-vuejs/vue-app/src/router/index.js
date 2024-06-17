@@ -43,6 +43,7 @@ const routes = [
     component: () => import("@/views/RomanceView.vue"),
     meta: { title: "Gênero Romance" },
   },
+
   {
     path: "/favoritos",
     name: "Favoritos",
@@ -50,7 +51,7 @@ const routes = [
     meta: { title: "Favoritos" },
   },
   {
-    path:"/Detalhes",
+    path:"/Detalhes/:inputId",
     name: "Detalhes",
     component:() => import("@/views/Detalhes.vue"),
   }

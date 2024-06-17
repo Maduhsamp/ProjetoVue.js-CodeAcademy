@@ -232,6 +232,7 @@ export default {
     list-style: none;
     text-align: center;
     padding: 0.2em 0.5em;
+    margin-top: -10%;
     background: none;
     border-radius: 16px;
     color: #fff;

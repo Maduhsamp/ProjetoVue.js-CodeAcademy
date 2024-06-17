@@ -1,36 +1,32 @@
 <template>
-
   <div>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <nav>
-    <router-link to="/" exact><img src="../assets/LogoAnimePlaza.png" alt="Logo"></router-link>
-    <div class="shadow-effect">
-      <i class='bx bxs-home'></i>
-      <router-link to="/"><button><h4>Início</h4></button></router-link>
-    </div>
-    <div class="shadow-effect">
-      <i class='bx bxs-info-circle'></i>
-      <router-link to="/sobre"><button><h4>Sobre</h4></button></router-link>
-    </div>
-    <div class="genres shadow-effect">
-      <i class='bx bxs-movie-play'></i>
-      <ul class="menu">
-  <li>
-    <a href="#">Parent Link</a>
-    
-    <ul>
-      <li><a href="#">Child Link</a></li>
-      <li><a href="#">Child Link</a></li>
-      <li><a href="#">Child Link</a></li>
-      <li><a href="#">Child Link</a></li>
-    </ul>
-  </li>
-</ul>
-    </div>
-    <div class="shadow-effect">
-      <i class='bx bxs-star'></i>
-      <router-link to="/favoritos"><button><h4>Favoritos</h4></button></router-link>
-    </div>
+      <router-link to="/" exact><img src="../assets/LogoAnimePlaza.png" alt="Logo"></router-link>
+      <div class="shadow-effect">
+        <i class='bx bxs-home'></i>
+        <router-link to="/"><button><h4>Início</h4></button></router-link>
+      </div>
+      <div class="shadow-effect">
+        <i class='bx bxs-info-circle'></i>
+        <router-link to="/sobre"><button><h4>Sobre</h4></button></router-link>
+      </div>
+      <div class="genres shadow-effect">
+        <i class='bx bxs-movie-play'></i>
+        <div class="dropdown">
+          <div class="select" @click="toggleDropdown">
+            <span class="selected">{{ selectedGenre }}</span>
+            <div class="caret" :class="{ 'caret-rotate': isDropdownOpen }"></div>
+          </div>
+          <ul class="menu" :class="{ 'menu-open': isDropdownOpen }">
+            <li v-for="genre in genres" :key="genre" @click="selectGenre(genre)" :class="{ 'active': genre === selectedGenre }">{{ genre }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="shadow-effect">
+        <i class='bx bxs-star'></i>
+        <router-link to="/favoritos"><button><h4>Favoritos</h4></button></router-link>
+      </div>
     </nav>
     <router-view />
   </div>
@@ -38,8 +34,33 @@
 
 <script>
 export default {
-    name: "Header"
-}
+  name: "Header",
+  data() {
+    return {
+      isDropdownOpen: false,
+      selectedGenre: 'Gênero',
+      genres: ['Ação', 'Aventura', 'Comédia', 'Fantasia', 'Romance'],
+      genreRoutes: {
+        'Ação': '/acao',
+        'Aventura': '/aventura',
+        'Comédia': '/comedia',
+        'Fantasia': '/fantasia',
+        'Romance': '/romance'
+      }
+    };
+  },
+  methods: {
+    toggleDropdown() {
+      this.isDropdownOpen = !this.isDropdownOpen;
+    },
+    selectGenre(genre) {
+      this.selectedGenre = genre;
+      this.isDropdownOpen = false; // Fecha o dropdown após selecionar um gênero
+      // Redireciona para a rota correspondente ao gênero selecionado
+      this.$router.push(this.genreRoutes[genre]);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -76,26 +97,27 @@ export default {
 
   .genres {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     background-color: #3D0E5B;;
   }
 
   .genres::after {
     content: '';
     position: absolute;
-    left: 25px;
-    bottom: 4px;
-    width: 70%;
+    left: 14%;
+    bottom: 3%;
+    width: 60%;
     height: 3px;
     background: #fff;
     border-radius: 5px;
     transform-origin: right;
     transform: scaleX(0);
     transition: transform .5s;
-    
   }
 
-.genres:hover::after {
+  .genres:hover::after {
     transform-origin: left;
     transform: scaleX(1);
     
@@ -144,8 +166,6 @@ export default {
     transform-origin: right;
     transform: scaleX(0);
     transition: transform .5s;
-    
-    
   }
 
   nav button:hover::after {
@@ -155,51 +175,94 @@ export default {
   }
 
   .genres i {
-    margin-right: 10px;
+    margin-right: 7px;
+    margin-bottom: 3%;
     background-color: #3D0E5B;
   }
 
-  .menu {
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    width: 200px;
-    
+  .dropdown {
+    background: #3D0E5B;
+    min-width: 10em;
   }
 
-  .menu > li > a {
-    background: blue;
+  .dropdown * {
+    box-sizing: border-box;
+  }
+
+  .select {
+    background: #3D0E5B;
+    margin-top: -5%;
+    width: 70%;
     color: #fff;
-    display: block;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px #3D0E5B solid;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background 0.3s;
   }
 
-  .menu ul {
-    background: #ddd;
+  .selected {
+    background: transparent;
+  }
+
+  .select-clicked {
+    border: 2px #48255e solid;
+    box-shadow: 0 0 0.8em #48255e;
+  }
+
+  .caret {
+    background: transparent;
+    width: 0;
     height: 0;
-    left: 0;
-    opacity: 0;
+    margin-left: 5%;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+  }
+
+  .caret-rotate {
+    transform: rotate(180deg);
+  }
+
+  .menu {
+    list-style: none;
+    text-align: center;
+    padding: 0.2em 0.5em;
+    background: none;
+    border-radius: 16px;
+    color: #fff;
     position: absolute;
-    transition: all .5s ease;
-    top: 35px;
-    width: 100%;
-    padding-left: 0;
+    top: 3em;
+    left: 33%;
+    width: 90%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    z-index: 1;
   }
 
-  .menu li:hover ul {
-    height: 200px;
-    opacity: 1;
-    transform: translateY(0);
+  .menu li {
+    background: #3D0E5B;
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
   }
 
-  .menu ul a {
-    color: #000;
+  .menu li:hover {
+    background: #fff;
+    color: #3D0E5B;
+    text-shadow: 1px 1px 10px #3D0E5B;
+    transition: .5s;
+  }
+
+  .menu-open {
     display: block;
-    padding: 5px 20px;
-    
+    opacity: 1;
   }
 
 </style>

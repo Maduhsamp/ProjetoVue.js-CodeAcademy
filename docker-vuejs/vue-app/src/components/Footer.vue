@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 *{
+
     background-color: #3D0E5B;
     color: white;
 }

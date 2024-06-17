@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <CardComponent :idGenero="1" nomeGenero="Ação" limite="25"/>
-    <CardComponent :idGenero="1" nomeGenero="" limite="25"/>
+    <CardComponent :page="1" idGenero="1" nomeGenero="Ação" limite="25"/>
+    <CardComponent :page="2" idGenero="1" nomeGenero="" limite="25" />
   </div>
 </template>
 

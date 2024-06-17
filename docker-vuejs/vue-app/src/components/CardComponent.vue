@@ -2,7 +2,7 @@
 <div>
     <h1>{{nomeGenero}}</h1>
     <div class="cards">
-        <div class="card" v-for="anime in animes" :key="anime.id">
+        <div class="card" v-for="anime in animes" :key="anime.id" @click="goToDescripton(anime.id)">
             <img v-if="anime.imagem" :src="anime.imagem">
             <div class="titulo">
                 <h5>{{ anime.nome }}</h5>
@@ -27,6 +27,10 @@
       type: Number,
       required: true
     },
+    page:{
+      type: Number,
+      required: true
+    },
     nomeGenero: {
       type: String,
       required: true
@@ -43,9 +47,7 @@
     },
     methods: {
       async getInfo() {
-        // const ids = ['16498', '30276', '11757', '38000','31964'];
-        // const animePromises = ids.map(id =>getTopFiveGenre(1));
-        const responses = await getTopFiveGenre(this.idGenero,this.limite);
+        const responses = await getTopFiveGenre(this.page,this.idGenero,this.limite);
         this.animes = responses.data.data.map(response => ({
           id: response.mal_id,
           nome: response.title,
@@ -53,9 +55,10 @@
           imagem: response.images.jpg.large_image_url,
         }));
         console.log(responses);
-        // console.log(this.nomeGenero);
-        // console.log(this.idGenero);
-    }
+    },
+    goToDescripton(inputId){
+          this.$router.push({ name: 'Detalhes', params: {inputId}});
+        }
     },
     
     created() {
@@ -110,6 +113,11 @@
       justify-self: end;
       border-radius: 14px;
     }
+  }
+  .card:hover {
+      transform: scale(1.1); 
+      transition-duration: 0.5s;
+      cursor: pointer;
   }
   h1{
   margin: 10px 0 10px 60px;

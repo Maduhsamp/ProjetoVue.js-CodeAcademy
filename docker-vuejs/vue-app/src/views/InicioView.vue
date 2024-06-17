@@ -1,9 +1,8 @@
 <template>
   <div class="container">
-      <!-- <CardComponent :idGenero="22" nomeGenero="ROMANCE" limite="5" delay="3000"/>  -->
-      <!-- <CardMostPopular/>
+      <CardMostPopular/>
       <CardMostAiring/>
-      <CardUpcoming/> -->
+      <CardUpcoming/>
   </div>
 </template>
 

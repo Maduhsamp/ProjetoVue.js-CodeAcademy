@@ -3,8 +3,10 @@
                 <p>Todos os Direitos Reservados ©</p>
             <div class="links">
                 <ul>
-                    <li><a href="https://jikan.moe/">API | </a></li>
+                    <li><a href="https://jikan.moe/">API</a></li>
+                    <li><a href="#"> | </a></li>
                     <li><a href="https://instituto3c.com.br/o-instituto-3c/">Code Academy | </a></li>
+                    <li><a href="#"> | </a></li>
                     <li><a href="https://www.instagram.com/instituto3cplus/">Instagram </a></li>
                 </ul>
             </div>
@@ -42,6 +44,7 @@ ul{
     }
 }
 a:hover{
-    background: #white  ;
+    background-color:white;
+    color :#3D0E5B;
 }
 </style>

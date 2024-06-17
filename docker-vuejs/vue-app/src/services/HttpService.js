@@ -13,8 +13,8 @@ export const getGenres = async () => {
   return await HttpService.get('genres/anime')
 }
 //Card Component Filtrado por Genero e limite de 
-export const getTopFiveGenre = async (idGenre,limite) => {
-  return await HttpService.get(`anime?page=1&limit=${limite}&genres=${idGenre}&order_by=popularity`)
+export const getTopFiveGenre = async (page,idGenre,limite) => {
+  return await HttpService.get(`anime?page=${page}&limit=${limite}&genres=${idGenre}&order_by=popularity`)
 }
 //Cards Mais populares
 export const getMostPopular = async () => {

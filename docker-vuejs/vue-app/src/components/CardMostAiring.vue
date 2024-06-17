@@ -95,7 +95,7 @@
       .card:hover {
       transform: scale(1.1); 
       transition-duration: 0.5s;
-      cursor: poj;
+      cursor: pointer;
 }
       h1{
       margin: 30px 0 10px 20px;

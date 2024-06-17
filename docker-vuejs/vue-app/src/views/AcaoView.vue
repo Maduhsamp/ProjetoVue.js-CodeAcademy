@@ -9,11 +9,17 @@
 import CardComponent from '../components/CardComponent.vue';
 
 export default {
-    name: "AcaoView",
-    components: {
-      CardComponent,
-    }
-}
+  name: "AcaoView",
+  components: {
+    CardComponent,
+  },
+  data() {
+    return {
+      currentPage: 1,
+      itemsPerPage: 25, 
+    };
+  },
+};
 </script>
 
 <style scoped>

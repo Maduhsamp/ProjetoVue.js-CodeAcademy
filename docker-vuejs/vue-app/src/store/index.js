@@ -16,7 +16,7 @@ export default createStore({
   },
   actions: {
     addFavoriteAction(context, newFavorite) {
-      if(this.state.favorites.find(item => item.id === newFavorite.id)) {
+      if(this.state.favorites.find(anime => anime.id === newFavorite.id)) {
         alert('ja existe')        
       }
       else {

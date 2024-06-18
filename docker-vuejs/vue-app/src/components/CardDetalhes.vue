@@ -7,7 +7,7 @@
                 <h3>{{ nomejapones }}</h3>
                 <p>Ano de lançamento: {{ano}}</p>
                 <div class="sinopse">
-                    <h3>Sinopese</h3>
+                    <h3>Sinopse</h3>
                     <p>{{ sinopse }}</p>
                 </div>
                 <div class="genero">

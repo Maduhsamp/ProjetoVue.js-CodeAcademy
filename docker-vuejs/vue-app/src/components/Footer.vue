@@ -5,9 +5,9 @@
                 <ul>
                     <li><a href="https://jikan.moe/">API</a></li>
                     <li><a href="#"> | </a></li>
-                    <li><a href="https://instituto3c.com.br/o-instituto-3c/">Code Academy | </a></li>
+                    <li><a href="https://instituto3c.com.br/o-instituto-3c/">Code Academy</a></li>
                     <li><a href="#"> | </a></li>
-                    <li><a href="https://www.instagram.com/instituto3cplus/">Instagram </a></li>
+                    <li><a href="https://www.instagram.com/instituto3cplus/">Instagram</a></li>
                 </ul>
             </div>
     </div>
@@ -22,8 +22,8 @@ export default {
 <style lang="scss" scoped>
 *{
 
-    background-color: #3D0E5B;
-    color: white;
+    background-color: #2A232F;
+    color: #FDFAFF;
 }
 .footer{
     display:flex;
@@ -44,7 +44,7 @@ ul{
     }
 }
 a:hover{
-    background-color:white;
-    color :#3D0E5B;
+    background-color:#FDFAFF;
+    color :#2A232F;
 }
 </style>

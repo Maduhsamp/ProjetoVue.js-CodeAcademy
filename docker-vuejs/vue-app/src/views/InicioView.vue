@@ -7,15 +7,13 @@
 </template>
 
 <script>
-import CardMostAiring from '@/components/CardMostAiring.vue';
-import CardComponent from '../components/CardComponent.vue';
 import CardMostPopular from "../components/CardMostPopular.vue";
+import CardMostAiring from '@/components/CardMostAiring.vue';
 import CardUpcoming from "../components/CardUpcoming.vue"
 
 export default {
     name: "InicioView",
     components: {
-      CardComponent,
       CardMostPopular,
       CardMostAiring,
       CardUpcoming

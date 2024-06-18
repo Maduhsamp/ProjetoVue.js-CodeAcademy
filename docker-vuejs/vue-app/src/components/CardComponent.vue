@@ -84,7 +84,7 @@
     }
     p{
       background-color: #2c2c2c;
-      color: white;
+      color: #FDFAFF;
       font-size: 15px;
     }
   }
@@ -97,14 +97,13 @@
 }
 
   .card {
-    margin: 5px;
+    margin: 20px 5px;
     width: auto;
     background-color: #2c2c2c;
-    color: white;
+    color: #FDFAFF;
     text-align: center;
     border-radius: 16px;
     align-items: center;
-    box-shadow: rgb(39, 40, 40) 15px 15px 20px -10px;
   
     img{
       margin: 5px 5px;
@@ -118,9 +117,11 @@
       transform: scale(1.1); 
       transition-duration: 0.5s;
       cursor: pointer;
+      box-shadow:rgba(148, 0, 243,0.3) 2.5px 2.5px, rgba(148, 0, 243, 0.2) 5px 5px, rgba(148, 0, 243, 0.1) 10px 10px, rgba(148, 0, 243,0.05) 15px 15px;
   }
   h1{
-  margin: 10px 0 10px 60px;
+  margin: 30px 0 15px 20px;
   font-weight: bold;
+  color: #FDFAFF;
 }
   </style>

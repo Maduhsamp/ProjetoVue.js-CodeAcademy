@@ -7,7 +7,7 @@
                 <h3>{{ nomejapones }}</h3>
                 <p>Ano de lançamento: {{ano}}</p>
                 <div class="sinopse">
-                    <h3>Synopsis</h3>
+                    <h3>Sinopese</h3>
                     <p>{{ sinopse }}</p>
                 </div>
                 <div class="genero">
@@ -66,48 +66,47 @@
     
     .card{
         margin: 50px;
-        background-color: rgb(61, 14, 91);
+        background-color: #2A232F;
         border-radius: 24px;
         width: 100%;
-        color: white;
+        color: #FDFAFF;
         display: flex;
         flex-direction: row;
-        box-shadow: rgb(39, 40, 40) 15px 15px 20px -10px;
     } 
     .info{
         display: flex;
         flex-direction: column;
         align-items: start;
         text-align: left;
-        background-color: #3d0e5bb3;
+        background-color: #2A232F;
         border-radius: 24px;
         h1{
             margin-left: 30px;
-            background-color: #3d0e5bb3;
+            background-color: #2A232F;
         }
         h3{
             margin-left:30px;
-            background-color: #3d0e5bb3;
+            background-color: #2A232F;
         }
         p{
             margin-left:30px;
-            background-color: #3d0e5bb3;
+            background-color: #2A232F;
         }
     }
     .sinopse{
-        background: #0c0c0c;
+        background: #1B171F;
         border-radius: 16px;
         padding: 30px;  
         margin-right: 40px;
-        box-shadow: rgb(39, 40, 40) 15px 15px 20px -10px;
         
         h3{
             margin: 0 0 10px;
-            background: #0c0c0c;
+            background: #1B171F;
         }
         p{
             margin:0;
-            background:#0c0c0c;
+            background:#1B171F;
+            border: 1px solid #18171F;
         }
     }
 
@@ -116,16 +115,16 @@
         margin: 30px 0;
         align-items: center;
         font-size: 20px;
-        background-color: #3d0e5bb3;
-
+        background-color: #2A232F;
         p{
-            background-color: #2c2c2c; 
-            padding: 4px;
+            background-color: #18171F; 
+            padding:5px 20px;
             border-radius: 16px;
-            box-shadow: 10px 10px 20px rgb(0, 0, 0);
+            
+            
         }
         h5{
-            background-color: #3d0e5bb3;
+            background-color: #2A232F;
             font-weight: 500;
         }
     }

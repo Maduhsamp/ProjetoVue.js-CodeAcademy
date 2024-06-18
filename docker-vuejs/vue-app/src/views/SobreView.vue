@@ -23,21 +23,21 @@
 
 <style lang="scss" scoped>
     .about {
-        background: #0c0c0c;
+        background: #2A232F;
         display: flex;
         align-items: center;
         margin: 100px 50px;
-        border: 30px solid #0c0c0c;
+        border: 30px solid #2A232F;
         border-radius: 16px;
 
         h1 {
-            background: #0c0c0c;
-            color: #fff;
+            background: #2A232F;
+            color: #FDFAFF;
         }
 
         p {
-            background: #0c0c0c;
-            color: #fff;
+            background: #2A232F;
+            color: #FDFAFF;
             font-size: 1.2em;
             font-weight: 300;
         }
@@ -49,7 +49,7 @@
     }
 
     .text {
-        background: #0c0c0c;
+        background: #2A232F;
         margin: 20px;
     }
 </style>

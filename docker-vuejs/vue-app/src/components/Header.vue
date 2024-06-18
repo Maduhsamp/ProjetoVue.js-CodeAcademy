@@ -69,8 +69,8 @@ export default {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
-    background-color: #3D0E5B;;
-    color: #fff;
+    background-color: #2A232F;;
+    color: #FDFAFF;
     width: 100%;
     height: 20%;
     display: flex;
@@ -78,18 +78,18 @@ export default {
     align-items: center;
   }
   h4{
-    background-color: #3D0E5B;
+    background-color: #2A232F;
   }
   .shadow-effect{
-    background-color: #3D0E5B;
+    background-color: #2A232F;
   }
   .shadow-effect:hover {
-    text-shadow: 1px 1px 10px #fff;
+    text-shadow: 1px 1px 10px #FDFAFF;
     transition: .5s;
-    background-color: #3D0E5B;;
+    background-color: #2A232F;;
     
     button {
-      text-shadow: 1px 1px 10px #fff;
+      text-shadow: 1px 1px 10px #FDFAFF;
       transition: .5s;
       
     }
@@ -100,7 +100,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #3D0E5B;;
+    background-color: #2A232F;;
   }
 
   .genres::after {
@@ -110,7 +110,7 @@ export default {
     bottom: 3%;
     width: 60%;
     height: 3px;
-    background: #fff;
+    background: #FDFAFF;
     border-radius: 5px;
     transform-origin: right;
     transform: scaleX(0);
@@ -126,7 +126,7 @@ export default {
   nav i {
     font-size: 1.3em;
     margin-right: 5px;
-    background-color: #3D0E5B;;
+    background-color: #2A232F;;
   }
 
   a {
@@ -134,23 +134,24 @@ export default {
     width: 280px;
     height: 100px;
     cursor: pointer;
-    background-color: #3D0E5B;;
+    background-color: #2A232F;;
   }
 
   nav img {
+    margin-top: 15px;
     margin-left: -10%;
-    width: 100%;
+    width:70%;
     height: auto;
     cursor: pointer;
-    background-color: #3D0E5B;
+    background-color: #2A232F;
   }
 
   nav button {
     position: relative;
     background: transparent;
     border: none;
-    color: #fff;
-    background-color: #3D0E5B;
+    color: #FDFAFF;
+    background-color: #2A232F;
     
   }
 
@@ -161,7 +162,7 @@ export default {
     bottom: 4px;
     width: 100%;
     height: 3px;
-    background: #fff;
+    background: #FDFAFF;
     border-radius: 5px;
     transform-origin: right;
     transform: scaleX(0);
@@ -177,11 +178,11 @@ export default {
   .genres i {
     margin-right: 7px;
     margin-bottom: 3%;
-    background-color: #3D0E5B;
+    background-color: #2A232F;
   }
 
   .dropdown {
-    background: #3D0E5B;
+    background: #2A232F;
     min-width: 10em;
   }
 
@@ -190,15 +191,15 @@ export default {
   }
 
   .select {
-    background: #3D0E5B;
+    background: #2A232F;
     margin-top: -5%;
     width: 70%;
-    color: #fff;
+    color: #FDFAFF;
     font-size: 1.5em;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px #3D0E5B solid;
+    border: 2px #2A232F solid;
     border-radius: 0.5em;
     cursor: pointer;
     transition: background 0.3s;
@@ -220,7 +221,7 @@ export default {
     margin-left: 5%;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 6px solid #fff;
+    border-top: 6px solid #FDFAFF;
     transition: 0.3s;
   }
 
@@ -235,7 +236,7 @@ export default {
     margin-top: -10%;
     background: none;
     border-radius: 16px;
-    color: #fff;
+    color: #FDFAFF;
     position: absolute;
     top: 3em;
     left: 33%;
@@ -247,7 +248,7 @@ export default {
   }
 
   .menu li {
-    background: #3D0E5B;
+    background: #2A232F;
     padding: 0.7em 0.5em;
     margin: 0.3em 0;
     border-radius: 0.5em;
@@ -255,9 +256,9 @@ export default {
   }
 
   .menu li:hover {
-    background: #fff;
-    color: #3D0E5B;
-    text-shadow: 1px 1px 10px #3D0E5B;
+    background: #FDFAFF;
+    color: #2A232F;
+    text-shadow: 1px 1px 10px #2A232F;
     transition: .5s;
   }
 

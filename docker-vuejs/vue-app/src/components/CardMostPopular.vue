@@ -1,104 +1,107 @@
 <template>
-    <div>
-        <h1>Mais Populares</h1>
-        <div class="cards">
-            <div class="card" v-for="anime in animes" :key="anime.id" @click="goToDescripton(anime.id)">
-                <img v-if="anime.imagem" :src="anime.imagem">
-                <div class="titulo">
-                    <h5>{{ anime.nome }}</h5>
-                    <p>{{ anime.nomejapones }}</p>
-                </div>
+  <div>
+      <h1>Mais Populares</h1>
+      <div class="cards">
+        <div class="card" v-for="anime in animes" :key="anime.id" @click="goToDescripton(anime.id)">
+              <img v-if="anime.imagem" :src="anime.imagem">
+              <div class="titulo">
+                  <h5>{{ anime.nome }}</h5>
+                  <p>{{ anime.nomejapones }}</p>
+              </div>
+              <!-- <button @click="addFavoriteAction(anime)">Adicionar Favorito</button> -->
             </div>
-        </div>
-    </div>
-    </template>
+      </div>
+  </div>
+  </template>
+  
+  <script>
+    import { getMostPopular } from "@/services/HttpService";
+    import { mapActions } from 'vuex';
     
-    <script>
-      import { getMostPopular } from "@/services/HttpService";
-      
-      export default {
+    export default {
         name: "CardMostPopular",
-        data() {
-          return {
-            animes: [],
-          };
-        },
-        methods: {
-          async getInfo() {
-            const responses = await getMostPopular();
-            this.animes = responses.data.data.map(response => ({
-              id: response.mal_id,
-              nome: response.title,
-              nomejapones: response.title_japanese,
-              imagem: response.images.jpg.large_image_url,
-            }));
-            console.log(responses);
-        },
-        goToDescripton(inputId){
-          this.$router.push({ name: 'Detalhes', params: {inputId}});
-        }
-        },
-        
-        created() {
-            setTimeout(this.getInfo,this.delay); 
-        }
+      data() {
+      return {
+          animes: [],
       };
-      </script>
-      <style scoped lang="scss">
-      * {
-        margin: 0;
-        padding: 0;
+    },
+      methods: {
+        ...mapActions(['addFavoriteAction']),
+
+        async getInfo() {
+          const responses = await getMostPopular();
+          this.animes = responses.data.data.map(response => ({
+            id: response.mal_id,
+            nome: response.title,
+            nomejapones: response.title_japanese,
+            imagem: response.images.jpg.large_image_url,
+          }));
+          console.log(responses);
+      },
+      goToDescripton(inputId){
+        this.$router.push({ name: 'Detalhes', params: {inputId}});
       }
-      .titulo {
-        margin: 10px;
-        width: 200px;
-        height: auto;
-        background-color: #0c0c0c;
-        display: grid;
-        text-align: start;
+      },
       
-        h5{
-          background-color: #0c0c0c;
-          font-weight: 400;
-        }
-        p{
-          background-color: #0c0c0c;
-          color: white;
-          font-size: 15px;
-        }
+      created() {
+          setTimeout(this.getInfo,this.delay); 
       }
-      .cards {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: auto;
+    };
+    </script>
+    <style scoped lang="scss">
+    * {
+      margin: 0;
+      padding: 0;
     }
+    .titulo {
+      margin: 10px;
+      width: 200px;
+      height: auto;
+      background-color: #2A232F;
+      display: grid;
+      text-align: start;
     
-      .card {
-        width: auto;
-        background-color: #0c0c0c;
-        color: white;
-        text-align: center;
-        border-radius: 16px;
-        align-items: center;
-        box-shadow: rgb(39, 40, 40) 15px 15px 20px -10px;
-      
-        img{
-          margin: 5px 5px;
-          width: 210px;
-          height: 300px;
-          justify-self: end;
-          border-radius: 14px;
-        }
+      h5{
+        background-color: #2A232F;
+        font-weight: 400;
       }
-      .card:hover {
-      transform: scale(1.1); /* Aumenta o tamanho do card em 10% */
-      transition-duration: 0.5s;
-}
-      h1{
-      margin: 30px 0 10px 20px;
-      font-weight: 700;
-      color: #3D0E5B;
+      p{
+        background-color: #2A232F;
+        color: white;
+        font-size: 15px;
+      }
     }
-      </style>
+    .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: auto;
+  }
+  
+    .card {
+      width: auto;
+      background-color: #2A232F;
+      color: white;
+      text-align: center;
+      border-radius: 16px;
+      align-items: center;
+      
+      img{
+        width: 221px;
+        height: 300px;
+        justify-self: end;
+        border-radius: 14px;
+      }
+    }
+    .card:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do card em 10% */
+    transition-duration: 0.5s;
+    box-shadow:rgba(148, 0, 243,0.3) 2.5px 2.5px, rgba(148, 0, 243, 0.2) 5px 5px, rgba(148, 0, 243, 0.1) 10px 10px, rgba(148, 0, 243,0.05) 15px 15px;
+}
+    h1{
+    margin: 30px 0 15px 20px;
+    font-weight: 700;
+    color: #FDFAFF;
+  }
+  </style>

@@ -51,7 +51,7 @@ export default {
 }
 
 .container {
-  height: 400px; 
-  overflow-y: scroll; 
+  height: 700px; 
+  overflow-y: scroll;
 }
 </style>

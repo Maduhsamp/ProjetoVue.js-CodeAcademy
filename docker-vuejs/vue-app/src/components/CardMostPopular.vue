@@ -4,11 +4,13 @@
       <div class="cards">
         <div class="card" v-for="anime in animes" :key="anime.id" @click="goToDescripton(anime.id)">
               <img v-if="anime.imagem" :src="anime.imagem">
-              <div class="titulo">
-                  <h5>{{ anime.nome }}</h5>
-                  <p>{{ anime.nomejapones }}</p>
-              </div>
-              <!-- <button @click="addFavoriteAction(anime)">Adicionar Favorito</button> -->
+                <div class="titulo">
+                    <h5>{{ anime.nome }}</h5>
+                    <p>{{ anime.nomejapones }}</p>
+                </div>
+                <div class="favorite">
+                  <FavoriteButton @click.stop="addFavoriteAction(anime)"/>
+                </div>
             </div>
       </div>
   </div>
@@ -17,9 +19,13 @@
   <script>
     import { getMostPopular } from "@/services/HttpService";
     import { mapActions } from 'vuex';
+    import FavoriteButton from "../components/FavoriteButton.vue";
     
     export default {
         name: "CardMostPopular",
+        components:{
+          FavoriteButton
+        },
       data() {
       return {
           animes: [],
@@ -27,7 +33,6 @@
     },
       methods: {
         ...mapActions(['addFavoriteAction']),
-
         async getInfo() {
           const responses = await getMostPopular();
           this.animes = responses.data.data.map(response => ({
@@ -44,7 +49,7 @@
       },
       
       created() {
-          setTimeout(this.getInfo,this.delay); 
+        setTimeout(this.getInfo,this.delay); 
       }
     };
     </script>
@@ -52,6 +57,12 @@
     * {
       margin: 0;
       padding: 0;
+    }
+    .favorite{
+      align-self: end;
+      justify-self: end;
+      background-color: #2A232F;
+      border-radius: 24px;
     }
     .titulo {
       margin: 10px;
@@ -77,7 +88,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: auto;
-  }
+    }
   
     .card {
       width: auto;
@@ -85,12 +96,14 @@
       color: white;
       text-align: center;
       border-radius: 16px;
-      align-items: center;
+      // justify-content: center;
+      // align-items: center;
       
       img{
         width: 221px;
         height: 300px;
-        justify-self: end;
+        align-self: start;
+        justify-self: start;
         border-radius: 14px;
       }
     }
@@ -104,4 +117,5 @@
     font-weight: 700;
     color: #FDFAFF;
   }
+
   </style>

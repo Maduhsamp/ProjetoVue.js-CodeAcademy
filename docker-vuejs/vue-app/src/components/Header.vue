@@ -138,9 +138,9 @@ export default {
   }
 
   nav img {
-    margin-top: 15px;
+
     margin-left: -10%;
-    width:70%;
+    width:100%;
     height: auto;
     cursor: pointer;
     background-color: #2A232F;
